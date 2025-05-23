@@ -1,9 +1,13 @@
-# LiteDebounce
+# LiteDebounce.js
+
+[![mrnko - lite-debounce-js](https://img.shields.io/static/v1?label=mrnko&message=lite-debounce-js&color=blue&logo=github)](https://github.com/mrnko/lite-debounce-js "Go to GitHub repo")
+[![stars - lite-debounce-js](https://img.shields.io/github/stars/mrnko/lite-debounce-js?style=social)](https://github.com/mrnko/lite-debounce-js)
+[![forks - lite-debounce-js](https://img.shields.io/github/forks/mrnko/lite-debounce-js?style=social)](https://github.com/mrnko/lite-debounce-js)
 
 A lightweight, dependency-free debounce utility for JavaScript functions. Supports both leading and trailing edge execution. Perfect for input handlers, resize events, and performance optimization in modern web apps.
 
-[![npm version](https://img.shields.io/npm/v/lite-debounce.svg?style=flat-square)](https://www.npmjs.com/package/lite-debounce)
-[View Demo](./demo/index.html) • [View on GitHub](https://github.com/mrnko/lite-debounce)
+[![npm version](https://img.shields.io/npm/v/lite-debounce.svg?style=flat-square)](https://www.npmjs.com/package/lite-debounce-js)
+[View Demo](./demo/index.html) • [View on GitHub](https://github.com/mrnko/lite-debounce-js)
 
 ---
 
@@ -96,12 +100,3 @@ npm run dev
 npm test
 ```
 Tests are written with [Vitest](https://vitest.dev/).
-
----
-
-## License
-MIT
-
----
-
-[View on GitHub](https://github.com/mrnko/lite-debounce)
