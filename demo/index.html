@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>LiteDebounce Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .container {
+      background: #fff;
+      margin-top: 3rem;
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px 0 rgba(60, 80, 120, 0.10);
+      max-width: 420px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.5rem;
+      transition: padding 0.2s, margin 0.2s;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 0 0 0.5em 0;
+      color: #2a3342;
+      text-align: center;
+    }
+    p {
+      color: #5a6270;
+      text-align: center;
+      margin: 0 0 1em 0;
+      font-size: 1.08em;
+    }
+    label {
+      font-weight: 500;
+      color: #3b4252;
+      margin-bottom: 0.5em;
+      font-size: 1em;
+    }
+    input {
+      padding: 1em 1.1em;
+      font-size: 1.15em;
+      border: 1.5px solid #bfc9d9;
+      border-radius: 8px;
+      outline: none;
+      transition: border 0.2s, background 0.2s;
+      margin-bottom: 0.5em;
+      width: 100%;
+      background: #f8fafc;
+      box-shadow: 0 1px 2px 0 rgba(60, 80, 120, 0.03);
+    }
+    input:focus {
+      border-color: #6c63ff;
+      background: #f4f7ff;
+    }
+    .log {
+      margin-top: 0.5rem;
+      padding: 1.2rem 1rem;
+      background: linear-gradient(90deg, #f4f7ff 0%, #e9eefa 100%);
+      border-radius: 8px;
+      min-height: 2.5em;
+      color: #2a3342;
+      font-size: 1.08em;
+      box-shadow: 0 2px 8px 0 rgba(60, 80, 120, 0.06);
+      transition: background 0.3s, color 0.3s;
+      word-break: break-word;
+      animation: fadeIn 0.4s;
+      user-select: text;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .container {
+        margin-top: 0.5rem;
+        padding: 1.1rem 0.3rem 1.1rem 0.3rem;
+        max-width: 100vw;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+      }
+      h1 { font-size: 1.2rem; }
+      p { font-size: 0.98em; }
+      label { font-size: 0.98em; }
+      input {
+        font-size: 1em;
+        padding: 0.9em 0.7em;
+      }
+      .log {
+        font-size: 0.98em;
+        padding: 1em 0.5em;
+      }
+    }
+    @media (max-width: 400px) {
+      .container {
+        padding: 0.5rem 0.1rem 0.5rem 0.1rem;
+      }
+      h1 { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>LiteDebounce Demo</h1>
+    <p>Try resizing the window or typing in the input below to see debounced events in action.</p>
+
+    <label for="demo-input">Type here:</label>
+    <input id="demo-input" type="text" placeholder="Start typing..." autocomplete="off" />
+
+    <div class="log" id="log">Waiting for action...</div>
+  </div>
+  <footer style="margin:2rem 0 1rem 0; text-align:center; color:#7a869a; font-size:1em;">
+    <a href="https://github.com/mrnko/lite-debounce" target="_blank" rel="noopener" style="color:#6c63ff; text-decoration:none; font-weight:500;">
+      View on GitHub
+    </a>
+  </footer>
+
+  <script type="module">
+    import { LiteDebounce } from '../dist/lite-debounce.min.js';
+
+    const log = document.getElementById('log');
+    function appendLog(msg) {
+      log.textContent = msg;
+      log.style.background = 'linear-gradient(90deg, #e0ffe0 0%, #e9eefa 100%)';
+      setTimeout(() => {
+        log.style.background = '';
+      }, 350);
+    }
+
+    // Debounced resize event
+    const resizeDebouncer = new LiteDebounce(() => {
+      appendLog('Window resized at: ' + new Date().toLocaleTimeString());
+    }, 500, { leading: false });
+    window.addEventListener('resize', resizeDebouncer.fnDebounced);
+
+    // Debounced input event
+    const inputDebouncer = new LiteDebounce((e) => {
+      appendLog('Input value: ' + e.target.value + ' (' + new Date().toLocaleTimeString() + ')');
+    }, 400, { leading: false });
+    document.getElementById('demo-input').addEventListener('input', inputDebouncer.fnDebounced);
+  </script>
+</body>
+</html> 
