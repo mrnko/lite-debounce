@@ -1,4 +1,4 @@
-# LiteDebounce.js
+# LiteDebounce
 
 [![mrnko - lite-debounce-js](https://img.shields.io/static/v1?label=mrnko&message=lite-debounce-js&color=blue&logo=github)](https://github.com/mrnko/lite-debounce-js "Go to GitHub repo")
 [![stars - lite-debounce-js](https://img.shields.io/github/stars/mrnko/lite-debounce-js?style=social)](https://github.com/mrnko/lite-debounce-js)
@@ -6,8 +6,8 @@
 
 A lightweight, dependency-free debounce utility for JavaScript functions. Supports both leading and trailing edge execution. Perfect for input handlers, resize events, and performance optimization in modern web apps.
 
-[![npm version](https://img.shields.io/npm/v/lite-debounce.svg?style=flat-square)](https://www.npmjs.com/package/lite-debounce-js)
-[View Demo](./demo/index.html) • [View on GitHub](https://github.com/mrnko/lite-debounce-js)
+[![npm version](https://img.shields.io/npm/v/lite-debounce-js.svg?style=flat-square)](https://www.npmjs.com/package/lite-debounce-js)
+[View Demo](https://mrnko.github.io/lite-debounce-js/demo/index.html) • [View on GitHub](https://github.com/mrnko/lite-debounce-js)
 
 ---
 
@@ -23,7 +23,7 @@ A lightweight, dependency-free debounce utility for JavaScript functions. Suppor
 ## Installation
 
 ```bash
-npm install lite-debounce
+npm install lite-debounce-js
 ```
 Or simply copy the file from `dist/` into your project.
 
@@ -34,7 +34,7 @@ Or simply copy the file from `dist/` into your project.
 ### Import
 ```js
 // ESM (from npm)
-import { LiteDebounce } from 'lite-debounce';
+import { LiteDebounce } from 'lite-debounce-js';
 // Or import from local build:
 import { LiteDebounce } from './dist/lite-debounce.min.js';
 ```

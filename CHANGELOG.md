@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0] - 2025-05-23
 
-- ES module only: removed IIFE build, now only ESM is published and supported.
+- ES module only: removed IIFE build, now only ESM is published and supported (package renamed to lite-debounce-js).
 - Demo and documentation updated to use only ESM import.
 - Build now fully minifies output and removes all comments.
 - Improved README and project structure.
